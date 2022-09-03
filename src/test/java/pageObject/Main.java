@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class Main {
     private final WebDriver driver;
-    private final By yandexLogo = By.className("Header_LogoYandex__3TSOI");
-    private final By samokatLogo = By.className("Header_LogoScooter__3lsAR");
     private final By buttonCookie = By.id("rcc-confirm-button");
     private final By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']");
     private final By buttonOrderDown = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
@@ -32,14 +30,6 @@ public class Main {
 
     public Main(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public void setYandexLogo() {
-        this.driver.findElement(this.yandexLogo).click();
-    }
-
-    public void setSamokatLogo() {
-        this.driver.findElement(this.samokatLogo).click();
     }
 
     public void setButtonCookie() {
@@ -126,46 +116,46 @@ public class Main {
         this.driver.findElement(this.buttonGO).click();
     }
 
-    public void Order(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
-        this.setButtonCookie();
-        this.setButtonOrderUp();
-        this.setName(nameEnter);
-        this.setSurname(surnameEnter);
-        this.setAddress(addressEnter);
-        this.setMetro();
-        this.setMetro2();
-        this.setPhone(phoneEnter);
-        this.setButtonThen();
-        this.setDate(dateEnter);
-        this.setAboutRent();
-        this.setRentalPeriod();
-        this.setDay();
-        this.setScooterColor();
-        this.setComment(commentEnter);
-        this.setButtonOrderRent();
-        this.setButtonYes();
-        this.setButtonOrderStatus();
-        this.setOrderNumber();
-        this.setButtonGO();
+    public void order(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
+        setButtonCookie();
+        setButtonOrderUp();
+        setName(nameEnter);
+        setSurname(surnameEnter);
+        setAddress(addressEnter);
+        setMetro();
+        setMetro2();
+        setPhone(phoneEnter);
+        setButtonThen();
+        setDate(dateEnter);
+        setAboutRent();
+        setRentalPeriod();
+        setDay();
+        setScooterColor();
+        setComment(commentEnter);
+        setButtonOrderRent();
+        setButtonYes();
+        setButtonOrderStatus();
+        setOrderNumber();
+        setButtonGO();
     }
 
-    public void Order2(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
-        this.setButtonCookie();
-        this.setButtonOrderDown();
-        this.setName(nameEnter);
-        this.setSurname(surnameEnter);
-        this.setAddress(addressEnter);
-        this.setMetro();
-        this.setMetro2();
-        this.setPhone(phoneEnter);
-        this.setButtonThen();
-        this.setDate(dateEnter);
-        this.setAboutRent();
-        this.setRentalPeriod();
-        this.setDay();
-        this.setScooterColor();
-        this.setComment(commentEnter);
-        this.setButtonOrderRent();
-        this.setButtonYes();
+    public void secondorder(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
+        setButtonCookie();
+        setButtonOrderDown();
+        setName(nameEnter);
+        setSurname(surnameEnter);
+        setAddress(addressEnter);
+        setMetro();
+        setMetro2();
+        setPhone(phoneEnter);
+        setButtonThen();
+        setDate(dateEnter);
+        setAboutRent();
+        setRentalPeriod();
+        setDay();
+        setScooterColor();
+        setComment(commentEnter);
+        setButtonOrderRent();
+        setButtonYes();
     }
 }

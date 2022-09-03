@@ -1,9 +1,8 @@
-import pageObject.Main;
-import org.junit.jupiter.api.Assertions;
+import com.sun.tools.javac.Main;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,15 +15,15 @@ public class OrderTest {
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         Main main = new Main(driver);
-        main.Order("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "самокат");
+        main.order("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "самокат");
     }
     // Заказ через верхнюю кнопку "Заказать"
     @Test
     public void orderInputFirefoxTest1() {
         driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
-        Main main = new Main(driver);
-        main.Order("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "жду");
+        pageobject.Main main = new pageobject.Main(driver);
+        main.order("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "жду");
         Assertions.assertTrue(driver.findElements(By.xpath("//button[text()='Посмотреть статус']")).size()==1, "Кнопка 'Посмотреть статус' не отобразилась");
     }
     // Заказ через нижнюю кнопку "Заказать"
@@ -32,8 +31,8 @@ public class OrderTest {
     public void orderInputFirefoxTest2() {
         driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
-        Main main = new Main(driver);
-        main.Order2("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "Чем быстрее, тем лучше");
+        pageobject.Main main = new pageobject.Main(driver);
+        main.secondorder("Игорь", "Левада", "г.Ростов-на-Дону", "89185324868", "01.07.2022", "Чем быстрее, тем лучше");
         Assertions.assertTrue(driver.findElements(By.xpath("//button[text()='Посмотреть статус']")).size()==1, "Кнопка 'Посмотреть статус' не отобразилась");
     }
     @After

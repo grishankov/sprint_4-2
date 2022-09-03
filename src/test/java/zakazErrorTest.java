@@ -7,10 +7,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ErrorTest {
+public class zakazErrorTest {
     private WebDriver driver;
 
-    public ErrorTest(WebDriver driver) {
+    public zakazErrorTest(WebDriver driver) {
         this.driver = driver;
     }
 

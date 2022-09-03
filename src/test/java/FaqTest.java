@@ -38,7 +38,7 @@ public class FaqTest {
         };
     }
     @Test
-    public void shouldSameText() {
+    public void clickToFaq() {
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
