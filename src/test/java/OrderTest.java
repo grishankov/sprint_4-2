@@ -1,24 +1,22 @@
 import com.sun.tools.javac.Main;
-import org.asynchttpclient.util.Assertions;
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class OrderTest {
-    private WebDriver driver;
-    // Заказ через верхнюю кнопку "Заказать": не работает кнопка "Да" в Chrome
+    WebDriver driver = new ChromeDriver();
+
+
     @Test
-    public void orderInputChromeTest1() {
+    public void orderTestChrome (){
         driver = new ChromeDriver();
-
-
+        Main.Order("Игорь", "Левада", "г.Ростов-на-Дону, пер.Казахстанский, д.19, кв.3", "89185324868", "11.05.2020", "Подеъд №1");
     }
+
     @After
     public void teardown() {
-
         driver.quit();
     }
 }
