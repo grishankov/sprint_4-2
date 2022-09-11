@@ -10,6 +10,7 @@ public class Faq {
     private final WebDriver driver;
 
     public Faq(WebDriver driver) {
+
         this.driver = driver;
     }
 

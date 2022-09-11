@@ -5,7 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class Main {
-    private final WebDriver driver;
+    private WebDriver driver;
     private final By buttonCookie = By.id("rcc-confirm-button");
     private final By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']");
     private final By buttonOrderDown = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
@@ -28,7 +28,7 @@ public class Main {
     private final By orderNumber = By.xpath("//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private final By buttonGO = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
 
-    public Main(WebDriver driver) {
+    public void Main(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -116,7 +116,7 @@ public class Main {
         this.driver.findElement(this.buttonGO).click();
     }
 
-    public void order(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
+    public void Order(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
         setButtonCookie();
         setButtonOrderUp();
         setName(nameEnter);
@@ -139,7 +139,7 @@ public class Main {
         setButtonGO();
     }
 
-    public void secondorder(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
+    public void secondOrder(String nameEnter, String surnameEnter, String addressEnter, String phoneEnter, String dateEnter, String commentEnter) {
         setButtonCookie();
         setButtonOrderDown();
         setName(nameEnter);
