@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class OrderPageObject{
-    private static final String orderPageUrl = "https://qa-scooter.praktikum-services.ru/order";
+    private static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
     private static WebDriver driver;
     private final static By buttonCookie = By.id("rcc-confirm-button");
     private final static By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']");
@@ -32,7 +32,7 @@ public class OrderPageObject{
     private final static By buttonGO = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
 
     public static void setOrderPageUrl() {
-        driver.get(orderPageUrl);
+        driver.get(ORDER_PAGE_URL);
     }
     public static void setButtonCookie() {
         driver.findElement(buttonCookie).click();

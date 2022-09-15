@@ -1,88 +1,56 @@
-import org.asynchttpclient.util.Assertions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import pageObject.OrderPageObject;
 
 public class zakazErrorTest {
     private WebDriver driver;
 
     public zakazErrorTest(WebDriver driver) {
+
         this.driver = driver;
     }
 
     @Before
     public void before() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        OrderPageObject.setOrderPageUrl();
     }
 
     @Test
     public void errorName() {
-        driver.findElement(By.id("rcc-confirm-button")).click();
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='* Имя']")).sendKeys("rmm");
-        driver.findElement(By.xpath("//input[@placeholder='* Фамилия']")).click();
-        Assertions.assertTrue(driver.findElement(By.xpath("//*[text()='Введите корректное имя']")).getText()
-                .contains("Введите корректное имя"));
+        Order.Zakaz("Rmmm", "Левада", "г.Ростов-на-Дону, пер.Казахстанский, д.19, кв.3", "89185324868", "11.05.2020", "Подеъд №1");
+        if ((!driver.findElement(By.xpath("//*[text()='Введите корректное имя']")).getText()
+                .contains("Введите корректное имя"))) throw new AssertionError();
     }
 
     @Test
     public void errorFamilia() {
-        driver.findElement(By.id("rcc-confirm-button")).click();
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='* Фамилия']")).sendKeys("GJkhj");
-        driver.findElement(By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']")).click();
-        Assertions.assertTrue( driver.findElement(By.xpath("//*[text()='Введите корректную фамилию']")).getText()
-                .contains("Введите корректную фамилию"));
+        Order.Zakaz("Игорь", "64653", "г.Ростов-на-Дону, пер.Казахстанский, д.19, кв.3", "89185324868", "11.05.2020", "Подеъд №1");
+        if ((!driver.findElement(By.xpath("//*[text()='Введите корректную фамилию']")).getText()
+                .contains("Введите корректную фамиию"))) throw new AssertionError();
     }
 
     @Test
     public void errorAdress() {
-        driver.findElement(By.id("rcc-confirm-button")).click();
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']"))
-                .sendKeys("рмр");
-        driver.findElement(By.xpath("//input[@placeholder='* Фамилия']")).click();
-        Assertions.assertTrue( driver.findElement(By.xpath("//*[text()='Введите корректный адрес']")).getText()
-                .contains("Введите корректный адрес"));
+        Order.Zakaz("Игорь", "Левада", "-=-=-=-=-=-=;;;***", "89185324868", "11.05.2020", "Подеъд №1");
+        if ((!driver.findElement(By.xpath("//*[text()='Введите корректный адрес']")).getText()
+                .contains("Введите корректный адрес"))) throw new AssertionError();
     }
 
     @Test
     public void errorMetro() {
-        driver.findElement(By.id("rcc-confirm-button")).click();
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='* Имя']")).sendKeys("Игорь");
-        driver.findElement(By.xpath("//input[@placeholder='* Фамилия']")).sendKeys("Левада");
-        driver.findElement(By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']"))
-                .sendKeys("г. Москва, ул. Карла Маркса д.1");
-
-        driver.findElement(By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']"))
-                .sendKeys("89001502000");
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")).click();
-        Assertions.assertTrue( driver.findElement(By.xpath("//*[text()='Выберите станцию']")).getText()
-                .contains("Выберите станцию"));
-    }
-
-    @Test
-    public void errorMetro2() {
-        driver.findElement(By.id("rcc-confirm-button")).click();
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='* Имя']")).sendKeys("Игорь");
-        driver.findElement(By.xpath("//input[@placeholder='* Фамилия']")).sendKeys("Левада");
-        driver.findElement(By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']"))
-                .sendKeys("г. Москва, ул. Карла Маркса д.1");
-        driver.findElement(By.xpath("//input[@placeholder='* Станция метро']")).sendKeys(Keys.ARROW_DOWN);
-        driver.findElement(By.xpath("//*[@class='select-search__select']//*[text() = 'Бульвар Рокоссовского']")).click();
-
-        driver.findElement(By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']"))
-                .sendKeys("ыаы");
-        driver.findElement(By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")).click();
-        Assertions.assertTrue( driver.findElement(By.xpath("//*[text()='Введите корректный номер']")).getText()
-                .contains("Введите корректный номер"));
+        OrderPageObject.setOrderPageUrl();
+        OrderPageObject.setButtonCookie();
+        OrderPageObject.setButtonOrderUp();
+        OrderPageObject.setName("Игорь");
+        OrderPageObject.setSurname("Левада");
+        OrderPageObject.setAddress("г.Ростов-на-Дону, пер.Казахстанский, д.19, кв.3");
+        OrderPageObject.setPhone("89185324868");
+        OrderPageObject.setButtonThen();
+        if ((!driver.findElement(By.xpath("//*[text()='Выберете станцию']")).getText()
+                .contains("Выберете станцию"))) throw new AssertionError();
     }
 
     @After
