@@ -34,7 +34,6 @@ public class OrderPageObject{
     private final By orderNumber = By.xpath("//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private final By buttonGO = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
     private final By orderSuccessCheck = By.xpath("/html/body/div/div/div[2]");
-    private final By orderSuccessInfo = By.xpath("//*[text() = 'Заказ оформлен']");
 
     public void getOrderPageUrl() {
         driver.get(ORDER_PAGE_URL);
@@ -125,8 +124,7 @@ public class OrderPageObject{
     }
 
     public void orderSuccessCheck() {
-        driver.findElement(orderSuccessCheck);
-        driver.findElement(orderSuccessInfo);
+        driver.findElement(orderSuccessCheck).isDisplayed();
     }
 
     }
