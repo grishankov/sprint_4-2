@@ -1,41 +1,39 @@
-package pages;
+package pageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class FaqPage {
-    private WebDriver driver;
+public class FaqPageObject {
+    private final WebDriver driver;
 
-    public FaqPage(WebDriver driver) {
+    public FaqPageObject(WebDriver driver) {
         this.driver = driver;
     }
-    public final String FAQ_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
-    private By cookieButton = By.id("rcc-confirm-button");
-    private By firstQuestion = By.id("accordion__heading-0");
-    private By firstAnswerText = By.xpath(".//div[@id='accordion__panel-0']/p");
-    private By secondQuestion = By.id("accordion__heading-1");
-    private By secondAnswerText = By.xpath(".//div[@id='accordion__panel-1']/p");
-    private By thirdQuestion = By.id("accordion__heading-2");
-    private By thirdAnswerText = By.xpath(".//div[@id='accordion__panel-2']/p");
-    private By fourthQuestion = By.id("accordion__heading-3");
-    private By fourthAnswerText = By.xpath(".//div[@id='accordion__panel-3']/p");
-    private By fifthQuestion = By.id("accordion__heading-4");
-    private By fifthAnswerText = By.xpath(".//div[@id='accordion__panel-4']/p");
-    private By sixthQuestion = By.id("accordion__heading-5");
-    private By sixthAnswerText = By.xpath(".//div[@id='accordion__panel-5']/p");
-    private By seventhQuestion = By.id("accordion__heading-6");
-    private By seventhAnswerText = By.xpath(".//div[@id='accordion__panel-6']/p");
-    private By eighthQuestion = By.id("accordion__heading-7");
-    private By eighthAnswerText = By.xpath(".//div[@id='accordion__panel-7']/p");
-    private By TopButtonOfOrder = By.className("Button_Button__ra12g");
-    private By BottomButtonOfOrder = By.cssSelector("#root > div > div > div.Home_ThirdPart__LSTEE > div.Home_RoadMap__2tal_ > div.Home_FinishButton__1_cWm > button");
+    private static final String FAQ_PAGE_URL = "https://qa-scooter.praktikum-services.ru";
+    private final By cookieButtonFaq = By.id("rcc-confirm-button");
+    private final By firstQuestion = By.id("accordion__heading-0");
+    private final By firstAnswerText = By.xpath(".//div[@id='accordion__panel-0']/p");
+    private final By secondQuestion = By.id("accordion__heading-1");
+    private final By secondAnswerText = By.xpath(".//div[@id='accordion__panel-1']/p");
+    private final By thirdQuestion = By.id("accordion__heading-2");
+    private final By thirdAnswerText = By.xpath(".//div[@id='accordion__panel-2']/p");
+    private final By fourthQuestion = By.id("accordion__heading-3");
+    private final By fourthAnswerText = By.xpath(".//div[@id='accordion__panel-3']/p");
+    private final By fifthQuestion = By.id("accordion__heading-4");
+    private final By fifthAnswerText = By.xpath(".//div[@id='accordion__panel-4']/p");
+    private final By sixthQuestion = By.id("accordion__heading-5");
+    private final By sixthAnswerText = By.xpath(".//div[@id='accordion__panel-5']/p");
+    private final By seventhQuestion = By.id("accordion__heading-6");
+    private final By seventhAnswerText = By.xpath(".//div[@id='accordion__panel-6']/p");
+    private final By eighthQuestion = By.id("accordion__heading-7");
+    private final By eighthAnswerText = By.xpath(".//div[@id='accordion__panel-7']/p");
 
 
-    public void FAQ_PAGE_URL() {
+    public void getFaqPageUrl() {
         driver.get(FAQ_PAGE_URL);
     }
 
-    public void clickCookieButton() {
-        driver.findElement(cookieButton).click();
+    public void clickCookieButtonFaq() {
+        driver.findElement(cookieButtonFaq).click();
     }
 
     public void clickFirstQuestion() {

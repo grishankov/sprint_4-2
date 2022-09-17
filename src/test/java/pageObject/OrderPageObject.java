@@ -3,15 +3,18 @@ package pageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class OrderPageObject{
-    private final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
-    private static WebDriver driver;
-    private final By buttonCookie = By.id("rcc-confirm-button");
-    private final By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']");
-    private final By buttonOrderDown = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private final WebDriver driver;
+
+    public OrderPageObject(WebDriver driver) {
+        this.driver = driver;
+    }
+    private static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru";
+    private final By buttonCookieOrder = By.id("rcc-confirm-button");
+    private final By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']"); //кнопка заказать в верху страницы
+    private final By buttonOrderDown = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"); //кнопка заказать в середине страницы
     private final By name = By.xpath("//input[@placeholder='* Имя']");
     private final By surname = By.xpath("//input[@placeholder='* Фамилия']");
     private final By address = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
@@ -30,95 +33,100 @@ public class OrderPageObject{
     private final By buttonOrderStatus = By.xpath("//button[@class='Header_Link__1TAG7']");
     private final By orderNumber = By.xpath("//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private final By buttonGO = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
+    private final By orderSuccessCheck = By.xpath("/html/body/div/div/div[2]");
+    private final By orderSuccessInfo = By.xpath("//*[text() = 'Заказ оформлен']");
 
-    public OrderPageObject(WebDriver driver) {
-    }
-
-    public void OrderPageUrl() {
+    public void getOrderPageUrl() {
         driver.get(ORDER_PAGE_URL);
     }
-    public void ButtonCookie() {
-        driver.findElement(buttonCookie).click();
+
+    public void clickButtonCookieOrder() {
+        driver.findElement(buttonCookieOrder).click();
     }
 
-    public void ButtonOrderUp() {
+    public void clickButtonOrderUp() {
         driver.findElement(buttonOrderUp).click();
     }
 
-    public void ButtonOrderDown() {
+    public void clickButtonOrderDown() {
         driver.findElement(buttonOrderDown).click();
     }
 
-    public void Name(String nameEnter) {
+    public void enterName(String nameEnter) {
         driver.findElement(name).sendKeys(nameEnter);
     }
 
-    public void Surname(String surnameEnter) {
+    public void enterSurname(String surnameEnter) {
         driver.findElement(surname).sendKeys(surnameEnter);
     }
 
-    public void Address(String addressEnter) {
+    public void enterAddress(String addressEnter) {
         driver.findElement(address).sendKeys(addressEnter);
     }
 
-    public void Metro() {
+    public void clickMetro() {
         driver.findElement(metro).sendKeys(Keys.ARROW_DOWN);
     }
 
-    public void Metro2() {
+    public void clickMetroSecondStep() {
         driver.findElement(metroStation).click();
     }
 
-    public void Phone(String phoneEnter) {
+    public void enterPhone(String phoneEnter) {
         driver.findElement(phone).sendKeys(phoneEnter);
     }
 
-    public void ButtonThen() {
+    public void clickButtonThen() {
         driver.findElement(buttonThen).click();
     }
 
-    public void Date(String dateEnter) {
+    public void enterDate(String dateEnter) {
         driver.findElement(date).sendKeys(dateEnter);
     }
 
-    public void AboutRent() {
+    public void clickAboutRent() {
         driver.findElement(aboutRent).click();
     }
 
-    public void RentalPeriod() {
+    public void setRentalPeriod() {
         driver.findElement(rentalPeriod).click();
     }
 
-    public void Day() {
+    public void setDay() {
         driver.findElement(day).click();
     }
 
-    public void ScooterColor() {
+    public void setScooterColor() {
         driver.findElement(scooterColor).click();
     }
 
-    public void Comment(String commentEnter) {
+    public void enterComment(String commentEnter) {
         driver.findElement(comment).sendKeys(commentEnter);
     }
 
-    public void ButtonOrderRent() {
+    public void clickButtonOrderRent() {
         driver.findElement(buttonOrderRent).click();
     }
 
-    public void ButtonYes() {
+    public void clickButtonYes() {
         driver.findElement(buttonYes).click();
     }
 
-    public void ButtonOrderStatus() {
+    public void clickButtonOrderStatus() {
         driver.findElement(buttonOrderStatus).click();
     }
 
-    public void OrderNumber() {
+    public void getOrderNumber() {
         driver.findElement(orderNumber).sendKeys();
     }
 
-    public void ButtonGO() {
+    public void clickButtonGO() {
         driver.findElement(buttonGO).click();
+    }
+
+    public void orderSuccessCheck() {
+        driver.findElement(orderSuccessCheck);
+        driver.findElement(orderSuccessInfo);
     }
 
     }

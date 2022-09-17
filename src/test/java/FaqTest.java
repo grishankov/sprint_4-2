@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.FaqPage;
+import pageObject.FaqPageObject;
 
 
 import static org.junit.Assert.*;
@@ -20,100 +20,92 @@ public class FaqTest {
     private String expectedEighthAnswerText = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
 
     @Test
-    public void FirstQuestion() {
+    public void firstQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickFirstQuestion();
-        String actualFirstAnswerText = objectFaqPage.getFirstAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickFirstQuestion();
+        String actualFirstAnswerText = objectFaqPageObject.getFirstAnswerText();
         assertEquals(expectedFirstAnswerText, actualFirstAnswerText);
-        System.out.println(actualFirstAnswerText);
     }
 
     @Test
     public void secondQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickSecondQuestion();
-        String actualSecondAnswerText = objectFaqPage.getSecondAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickSecondQuestion();
+        String actualSecondAnswerText = objectFaqPageObject.getSecondAnswerText();
         assertEquals(expectedSecondAnswerText, actualSecondAnswerText);
-        System.out.println(actualSecondAnswerText);
     }
 
     @Test
     public void thirdQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectStartPage = new pages.FaqPage(driver);
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickThirdQuestion();
+        FaqPageObject objectStartPage = new FaqPageObject(driver);
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickThirdQuestion();
         String actualThirdAnswerText = objectStartPage.getThirdAnswerText();
         assertEquals(expectedThirdAnswerText, actualThirdAnswerText);
-        System.out.println(actualThirdAnswerText);
     }
 
     @Test
     public void fourthQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickFourthQuestion();
-        String actualFourthAnswerText = objectFaqPage.getFourthAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickFourthQuestion();
+        String actualFourthAnswerText = objectFaqPageObject.getFourthAnswerText();
         assertEquals(expectedFourthAnswerText, actualFourthAnswerText);
-        System.out.println(actualFourthAnswerText);
     }
 
     @Test
     public void fifthQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickFifthQuestion();
-        String actualFifthAnswerText = objectFaqPage.getFifthAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickFifthQuestion();
+        String actualFifthAnswerText = objectFaqPageObject.getFifthAnswerText();
         assertEquals(expectedFifthAnswerText, actualFifthAnswerText);
-        System.out.println(actualFifthAnswerText);
     }
 
     @Test
     public void sixthQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickSixthQuestion();
-        String actualSixthAnswerText = objectFaqPage.getSixthAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickSixthQuestion();
+        String actualSixthAnswerText = objectFaqPageObject.getSixthAnswerText();
         assertEquals(expectedSixthAnswerText, actualSixthAnswerText);
-        System.out.println(actualSixthAnswerText);
     }
 
     @Test
     public void seventhQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickSeventhQuestion();
-        String actualSeventhAnswerText = objectFaqPage.getSeventhAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickSeventhQuestion();
+        String actualSeventhAnswerText = objectFaqPageObject.getSeventhAnswerText();
         assertEquals(expectedSeventhAnswerText, actualSeventhAnswerText);
-        System.out.println(actualSeventhAnswerText);
     }
 
     @Test
     public void eighthQuestion() {
         driver = new ChromeDriver();
-        pages.FaqPage objectFaqPage = new FaqPage(driver);
-        objectFaqPage.FAQ_PAGE_URL();
-        objectFaqPage.clickCookieButton();
-        objectFaqPage.clickEighthQuestion();
-        String actualEighthAnswerText = objectFaqPage.getEighthAnswerText();
+        FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
+        objectFaqPageObject.getFaqPageUrl();
+        objectFaqPageObject.clickCookieButtonFaq();
+        objectFaqPageObject.clickEighthQuestion();
+        String actualEighthAnswerText = objectFaqPageObject.getEighthAnswerText();
         assertEquals(expectedEighthAnswerText, actualEighthAnswerText);
-        System.out.println(actualEighthAnswerText);
     }
     @After
     public void tearDown() {
