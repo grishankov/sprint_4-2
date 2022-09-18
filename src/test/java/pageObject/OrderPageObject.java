@@ -126,8 +126,7 @@ public class OrderPageObject {
     }
 
     public boolean orderSuccessCheck() {
-        driver.findElement(orderSuccessCheck).isDisplayed();
-        return true;
+        return driver.findElement(orderSuccessCheck).isDisplayed();
     }
 }
 
