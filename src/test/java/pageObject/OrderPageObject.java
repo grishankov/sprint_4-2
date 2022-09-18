@@ -1,16 +1,18 @@
 package pageObject;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 
-public class OrderPageObject{
+public class OrderPageObject {
     private final WebDriver driver;
 
     public OrderPageObject(WebDriver driver) {
         this.driver = driver;
     }
+
     private static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru";
     private final By buttonCookieOrder = By.id("rcc-confirm-button");
     private final By buttonOrderUp = By.xpath(".//button[@class='Button_Button__ra12g']"); //кнопка заказать в верху страницы
@@ -123,10 +125,10 @@ public class OrderPageObject{
         driver.findElement(buttonGO).click();
     }
 
-    public void orderSuccessCheck() {
+    public boolean orderSuccessCheck() {
         driver.findElement(orderSuccessCheck).isDisplayed();
+        return true;
     }
-
-    }
+}
 
 

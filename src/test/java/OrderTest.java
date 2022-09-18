@@ -1,9 +1,11 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObject.OrderPageObject;
+
 
 
 
@@ -32,6 +34,7 @@ public class OrderTest{
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
         objectOrderPage.orderSuccessCheck();
+        Assert.assertTrue(true);
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -60,6 +63,7 @@ public class OrderTest{
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
         objectOrderPage.orderSuccessCheck();
+        Assert.assertTrue(true);
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -88,6 +92,7 @@ public class OrderTest{
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
         objectOrderPage.orderSuccessCheck();
+        Assert.assertTrue(true);
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -116,9 +121,7 @@ public class OrderTest{
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
         objectOrderPage.orderSuccessCheck();
-        objectOrderPage.clickButtonOrderStatus();
-        objectOrderPage.getOrderNumber();
-        objectOrderPage.clickButtonGO();
+        Assert.assertTrue(true);
     }
 
     @After

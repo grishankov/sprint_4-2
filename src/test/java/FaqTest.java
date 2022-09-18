@@ -44,12 +44,11 @@ public class FaqTest {
     @Test
     public void thirdQuestion() {
         driver = new ChromeDriver();
-        FaqPageObject objectStartPage = new FaqPageObject(driver);
         FaqPageObject objectFaqPageObject = new FaqPageObject(driver);
         objectFaqPageObject.getFaqPageUrl();
         objectFaqPageObject.clickCookieButtonFaq();
         objectFaqPageObject.clickThirdQuestion();
-        String actualThirdAnswerText = objectStartPage.getThirdAnswerText();
+        String actualThirdAnswerText = objectFaqPageObject.getThirdAnswerText();
         assertEquals(expectedThirdAnswerText, actualThirdAnswerText);
     }
 
