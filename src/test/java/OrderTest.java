@@ -33,8 +33,7 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        objectOrderPage.orderSuccessCheck();
-        Assert.assertTrue(true);
+        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -62,8 +61,7 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        objectOrderPage.orderSuccessCheck();
-        Assert.assertTrue(true);
+        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -91,8 +89,7 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        objectOrderPage.orderSuccessCheck();
-        Assert.assertTrue(true);
+        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
         objectOrderPage.getOrderNumber();
         objectOrderPage.clickButtonGO();
@@ -120,8 +117,7 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        objectOrderPage.orderSuccessCheck();
-        Assert.assertTrue(true);
+        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
     }
 
     @After
