@@ -1,19 +1,26 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObject.OrderPageObject;
 
-
+import static org.junit.Assert.assertTrue;
 
 
 public class OrderTest{
+    private WebDriver driver;
 
+    @BeforeAll
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+    }
     @Test
     public void orderTestFirefoxHeaderButtonOrder() {
-        WebDriver driver = new FirefoxDriver();
+        driver = new FirefoxDriver();
         OrderPageObject objectOrderPage = new OrderPageObject(driver);
         objectOrderPage.getOrderPageUrl();
         objectOrderPage.clickButtonCookieOrder();
@@ -33,15 +40,13 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
+        assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
-        objectOrderPage.getOrderNumber();
-        objectOrderPage.clickButtonGO();
     }
 
     @Test
-    public void orderTestFirefoxHeaderButtonDown() {
-        WebDriver driver = new FirefoxDriver();
+    public void orderTestFirefoxMiddleButton() {
+        driver = new FirefoxDriver();
         OrderPageObject objectOrderPage = new OrderPageObject(driver);
         objectOrderPage.getOrderPageUrl();
         objectOrderPage.clickButtonCookieOrder();
@@ -61,15 +66,13 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
+        assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
-        objectOrderPage.getOrderNumber();
-        objectOrderPage.clickButtonGO();
     }
 
     @Test
     public void orderTestChromeHeaderButtonOrder() {
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         OrderPageObject objectOrderPage = new OrderPageObject(driver);
         objectOrderPage.getOrderPageUrl();
         objectOrderPage.clickButtonCookieOrder();
@@ -89,15 +92,13 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
+        assertTrue(objectOrderPage.orderSuccessCheck());
         objectOrderPage.clickButtonOrderStatus();
-        objectOrderPage.getOrderNumber();
-        objectOrderPage.clickButtonGO();
     }
 
     @Test
     public void orderTestChromeMiddleButtonOrder() {
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         OrderPageObject objectOrderPage = new OrderPageObject(driver);
         objectOrderPage.getOrderPageUrl();
         objectOrderPage.clickButtonCookieOrder();
@@ -117,12 +118,12 @@ public class OrderTest{
         objectOrderPage.enterComment("Подеъд №1");
         objectOrderPage.clickButtonOrderRent();
         objectOrderPage.clickButtonYes();
-        Assert.assertTrue(objectOrderPage.orderSuccessCheck());
+        assertTrue(objectOrderPage.orderSuccessCheck());
+        objectOrderPage.clickButtonOrderStatus();
     }
 
     @After
     public void teardown() {
-        WebDriver driver = new ChromeDriver();
         driver.quit();
     }
     }

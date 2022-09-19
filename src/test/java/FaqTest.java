@@ -1,5 +1,7 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.FaqPageObject;
@@ -8,7 +10,12 @@ import pageObject.FaqPageObject;
 import static org.junit.Assert.*;
 
 
+
 public class FaqTest {
+    @BeforeAll
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
     private WebDriver driver;
     private String expectedFirstAnswerText = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     private String expectedSecondAnswerText = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
@@ -110,4 +117,5 @@ public class FaqTest {
     public void tearDown() {
         driver.quit();
     }
+
 }

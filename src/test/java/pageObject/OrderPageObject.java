@@ -1,6 +1,5 @@
 package pageObject;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -32,10 +31,10 @@ public class OrderPageObject {
     private final By comment = By.xpath("//input[@placeholder='Комментарий для курьера']");
     private final By buttonOrderRent = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
     private final By buttonYes = By.xpath("//*[text() = 'Да']");
-    private final By buttonOrderStatus = By.xpath("//button[@class='Header_Link__1TAG7']");
+    private final By buttonOrderStatus = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button");
     private final By orderNumber = By.xpath("//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private final By buttonGO = By.xpath(".//button[@class='Button_Button__ra12g Header_Button__28dPO']");
-    private final By orderSuccessCheck = By.xpath("/html/body/div/div/div[2]");
+    private final By orderSuccessCheck = By.xpath("//*[text() = 'Заказ оформлен']");
 
     public void getOrderPageUrl() {
         driver.get(ORDER_PAGE_URL);

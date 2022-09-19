@@ -2,6 +2,7 @@ package pageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 public class FaqPageObject {
     private final WebDriver driver;
 
